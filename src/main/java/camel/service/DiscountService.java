@@ -47,6 +47,7 @@ public class DiscountService {
         productService.save(product);
 
         discount.setProduct(product);
+        discounts.save(discount);
         return discount;
     }
 
@@ -56,5 +57,9 @@ public class DiscountService {
             throw new IllegalStateException("Discount could not found for given id:" + id);
         }
         return discount.get();
+    }
+
+    public Iterable<Discount> findAll() {
+        return discounts.findAll();
     }
 }
